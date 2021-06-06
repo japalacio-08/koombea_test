@@ -35,6 +35,8 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'pg', '~> 1.1', '>= 1.1.4'
 gem 'puma_worker_killer'
 
+gem 'rufus-scheduler', '3.0.3'
+
 
 
 group :development, :test do
