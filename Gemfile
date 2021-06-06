@@ -33,6 +33,8 @@ gem 'credit_card_validations'
 gem 'rack-reducer', require: 'rack/reducer'
 gem 'will_paginate', '~> 3.1.0'
 gem 'pg', '~> 1.1', '>= 1.1.4'
+gem 'puma_worker_killer'
+
 
 
 group :development, :test do
