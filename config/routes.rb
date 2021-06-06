@@ -14,6 +14,7 @@ Rails.application.routes.draw do
         collection do
           get 'detail/:id', to: 'contacts#show', as: 'contacts_show'
           post 'import', to: 'contacts#importer', as: 'contacts_import'
+          get 'import/files', to: 'contacts#imported_files', as: 'contacts_imported_files'
           get 'failed/logs', to: 'contacts#failed_contacts', as: 'contacts_failed_contacts'
         end
       end

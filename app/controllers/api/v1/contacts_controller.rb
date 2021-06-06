@@ -17,6 +17,12 @@ class Api::V1::ContactsController < Api::ApplicationController
         success_response(data=serialize(ContactSerializer, @resource))
     end
 
+    def imported_files
+        @records = UploadedContactsFile::FilterSerializer.apply(filter_params).order("id desc").with_paginate_10((filter_params[:page] || 1))
+        success_response(data=bulk_serialize(UploadedContactsFileSerializer, @records, true))
+    end
+    
+
     def importer
         @record = UploadedContactsFile.create!(event_params) {|record| record.status = 'on_hold'; record.user=@current_user }
         success_response(data=serialize(UploadedContactsFileSerializer, @record))
@@ -34,7 +40,7 @@ class Api::V1::ContactsController < Api::ApplicationController
     end
 
     def filter_params
-        params.permit(:query_email, :page)
+        params.permit(:query_email, :page, :status)
     end
     
 

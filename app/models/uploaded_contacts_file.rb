@@ -4,6 +4,11 @@ class UploadedContactsFile < ApplicationRecord
   validates_presence_of :document, :name, :fields_order
   mount_uploader :document, DocumentUploader
 
+  FilterSerializer = Rack::Reducer.new(
+    self.all,
+    ->(status:) { self.where(status: status) },
+  )
+
   aasm(:status) do
     state :on_hold, initial: true
     state :processing
