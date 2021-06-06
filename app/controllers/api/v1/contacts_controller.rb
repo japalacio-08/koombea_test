@@ -4,12 +4,12 @@ class Api::V1::ContactsController < Api::ApplicationController
     before_action :get_contact, only: %i[show destroy]
 
     def index
-        @records = Contact::FilterSerializer.apply(filter_params).order("id desc").with_paginate_10((filter_params[:page] || 1))
+        @records = get_filtered_and_paginated_records(Contact)
         success_response(data=bulk_serialize(ContactSerializer, @records, true))
     end
 
     def failed_contacts
-        @records = FailedContact::FilterSerializer.apply(filter_params).order("id desc").with_paginate_10((filter_params[:page] || 1))
+        @records = get_filtered_and_paginated_records(FailedContact)
         success_response(data=bulk_serialize(FailedContactSerializer, @records, true))
     end
 
@@ -18,7 +18,7 @@ class Api::V1::ContactsController < Api::ApplicationController
     end
 
     def imported_files
-        @records = UploadedContactsFile::FilterSerializer.apply(filter_params).order("id desc").with_paginate_10((filter_params[:page] || 1))
+        @records = get_filtered_and_paginated_records(UploadedContactsFile)
         success_response(data=bulk_serialize(UploadedContactsFileSerializer, @records, true))
     end
     
@@ -40,7 +40,7 @@ class Api::V1::ContactsController < Api::ApplicationController
     end
 
     def filter_params
-        params.permit(:query_email, :page, :status)
+        params.permit(:email, :page, :status)
     end
     
 

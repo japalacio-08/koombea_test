@@ -20,7 +20,7 @@ class Contact < ApplicationRecord
 
   FilterSerializer = Rack::Reducer.new(
     self.all,
-    ->(query_email:) { self.where(email: query_email) },
+    ->(email:) { self.where(email: email) },
   )
 
   def get_cc_brand
