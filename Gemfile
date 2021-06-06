@@ -6,6 +6,7 @@ gem 'rails', '~> 5.2.2'
 
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
+gem 'rake', '~> 13.0.3'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
@@ -31,7 +32,7 @@ gem 'aasm', '~> 4.11', '>= 4.11.1'
 gem 'credit_card_validations'
 gem 'rack-reducer', require: 'rack/reducer'
 gem 'will_paginate', '~> 3.1.0'
-gem 'pg'
+gem 'pg', '~> 1.1', '>= 1.1.4'
 
 
 group :development, :test do
