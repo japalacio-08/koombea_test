@@ -77,6 +77,11 @@ Remote API: https://koombeatest.herokuapp.com
 Remote Database URI: postgres://postgres:KoombeaTest123@db.rsassquxrgbvpehcljcd.supabase.co:6543/postgres
 
 Local API: http://localhost:3000
+
+Test remote user: user_apiguard
+Test remote password: api_password
+
+# Test remote user and password only works for Remote API or localhost with remote database uri configuration
 ```
 
 1. healthcheck: GET `/api/v1/health_check`
