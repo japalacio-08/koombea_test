@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "asdasd",
+            "group": "asdasda",
+            "database": "${workspaceFolder:contacts_api}/db/development.sqlite3"
+        }
+    ]
+}
