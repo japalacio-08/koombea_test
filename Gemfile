@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.0'
-gem 'rails', '~> 5.2.2'
+ruby '2.6.6'
+gem 'rails', '~> 6.0'
 
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
